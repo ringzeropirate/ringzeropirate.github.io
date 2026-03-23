@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="error-page">
+  <div class="error-inner">
+    <div class="terminal-header">
+      <span class="th-dot red"></span>
+      <span class="th-dot yellow"></span>
+      <span class="th-dot green"></span>
+      <span class="th-path">ring0@pirate:~# cat /dev/null</span>
+    </div>
+    <div class="error-body">
+      <div class="error-code">
+        <span class="ec-num glitch-404" data-text="404">404</span>
+      </div>
+      <p class="error-msg">segmentation fault — page not found</p>
+      <p class="error-sub">La risorsa richiesta non esiste o è stata spostata.</p>
+      <div class="error-actions">
+        <a href="/" class="cta-btn primary">
+          <span>cd ~/home</span>
+        </a>
+        <a href="/articoli/" class="cta-btn secondary">
+          <span>ls /articoli/</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

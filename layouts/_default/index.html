@@ -1,0 +1,98 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Terminal prompt top -->
+    <div class="terminal-header">
+      <span class="th-dot red"></span>
+      <span class="th-dot yellow"></span>
+      <span class="th-dot green"></span>
+      <span class="th-path">ring0@pirate:~# cat /proc/identity</span>
+    </div>
+
+    <!-- Glitch Title -->
+    <h1 class="glitch-title" data-text="RingZero Pirate">
+      <span class="gt-line1">RingZero</span>
+      <span class="gt-line2">Pirate</span>
+    </h1>
+
+    <p class="hero-subtitle">{{ .Site.Params.subtitle }}</p>
+
+    <div class="hero-tags">
+      <span class="htag">exploit</span>
+      <span class="htag">kernel</span>
+      <span class="htag">eBPF</span>
+      <span class="htag">red team</span>
+	  <span class="htag">blue team</span>
+      <span class="htag">0day</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="/articoli/" class="cta-btn primary">
+        <span>cat articoli.txt</span>
+        <span class="btn-cursor">█</span>
+      </a>
+      <a href="{{ .Site.Params.githubURL }}" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+        <span>git clone</span>
+        <span class="ext-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hex background decoration -->
+  <div class="hex-bg" aria-hidden="true">
+    <div class="hex-grid"></div>
+  </div>
+</section>
+
+<!-- Latest Articles -->
+{{ $posts := where .Site.RegularPages "Section" "articoli" }}
+{{ if $posts }}
+<section class="latest-posts">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="sh-bracket">//</span> Latest Exploits
+    </h2>
+    <a href="/articoli/" class="view-all">ls -la /articoli →</a>
+  </div>
+
+  <div class="posts-grid">
+    {{ range first 6 $posts }}
+    <article class="post-card">
+      <div class="pc-top">
+        <div class="pc-meta">
+          <time class="pc-date" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "2006-01-02" }}
+          </time>
+          {{ with .Params.tags }}
+          <div class="pc-tags">
+            {{ range first 2 . }}
+            <span class="pc-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <div class="pc-severity">
+          {{ with .Params.severity }}
+          <span class="severity-badge sev-{{ . | lower }}">{{ . | upper }}</span>
+          {{ end }}
+        </div>
+      </div>
+
+      <h3 class="pc-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h3>
+
+      {{ with .Summary }}
+      <p class="pc-excerpt">{{ . }}</p>
+      {{ end }}
+
+      <a href="{{ .RelPermalink }}" class="pc-read-more">
+        read_more() <span class="arrow">→</span>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

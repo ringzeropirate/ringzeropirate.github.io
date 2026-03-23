@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="articles-page">
+  <div class="page-header">
+    <div class="terminal-header">
+      <span class="th-dot red"></span>
+      <span class="th-dot yellow"></span>
+      <span class="th-dot green"></span>
+      <span class="th-path">ring0@pirate:~# ls -la /articoli/</span>
+    </div>
+    <h1 class="page-title">
+      <span class="pt-accent">//</span> Articoli
+    </h1>
+    <p class="page-desc">{{ len .Pages }} voci nel database</p>
+  </div>
+
+  <div class="articles-list">
+    {{ range .Pages }}
+    <article class="article-row">
+      <div class="ar-left">
+        <time class="ar-date">{{ .Date.Format "2006-01-02" }}</time>
+        {{ with .Params.severity }}
+        <span class="severity-badge sev-{{ . | lower }}">{{ . | upper }}</span>
+        {{ end }}
+      </div>
+      <div class="ar-center">
+        <h2 class="ar-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ with .Params.tags }}
+        <div class="ar-tags">
+          {{ range . }}<span class="ar-tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <div class="ar-right">
+        <a href="{{ .RelPermalink }}" class="ar-read">exec →</a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+</section>
+{{ end }}

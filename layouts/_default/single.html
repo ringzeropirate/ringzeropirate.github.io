@@ -1,0 +1,46 @@
+{{ define "main" }}
+<article class="single-post">
+  <header class="post-header">
+    <div class="terminal-header">
+      <span class="th-dot red"></span>
+      <span class="th-dot yellow"></span>
+      <span class="th-dot green"></span>
+      <span class="th-path">ring0@pirate:~/{{ .Section }}# cat {{ .File.BaseFileName }}.md</span>
+    </div>
+
+    <div class="ph-meta">
+      <time class="ph-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      {{ with .Params.severity }}
+      <span class="severity-badge sev-{{ . | lower }}">{{ . | upper }}</span>
+      {{ end }}
+      {{ with .Params.cve }}
+      <span class="cve-badge">{{ . }}</span>
+      {{ end }}
+    </div>
+
+    <h1 class="post-title">{{ .Title }}</h1>
+
+    {{ with .Params.tags }}
+    <div class="ph-tags">
+      {{ range . }}<span class="ph-tag">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="pf-nav">
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="pf-prev">← {{ .Title }}</a>
+      {{ end }}
+      <a href="/{{ $.Section }}/" class="pf-back">↑ Tutti gli articoli</a>
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="pf-next">{{ .Title }} →</a>
+      {{ end }}
+    </div>
+  </footer>
+</article>
+{{ end }}

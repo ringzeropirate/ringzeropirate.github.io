@@ -1,0 +1,13 @@
+# Theme metadata
+name = "ringzero"
+license = "MIT"
+licenselink = ""
+description = "Cyberpunk terminal theme for Ring Zero Pirate — a technical cybersecurity blog."
+homepage = ""
+min_version = "0.120.0"
+
+[author]
+  name = "Ring Zero Pirate"
+
+[features]
+  min_version = "0.120.0"
