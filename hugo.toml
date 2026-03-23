@@ -1,15 +1,11 @@
-baseURL = "/"
+baseURL = "https://ringzeropirate.github.io/"
 languageCode = "it-IT"
 title = "RingZero Pirate"
 theme = "ringzero"
 paginate = 10
 enableRobotsTXT = true
 enableEmoji = true
-relativeURLs = true
-
-# Per GitHub Pages con repository non-root, decommenta e imposta:
-# baseURL = "https://tuousername.github.io/ringzero-pirate/"
-# relativeURLs = false
+relativeURLs = false
 
 [params]
   description = "Ricerche offensive, kernel exploitation e difesa avanzata nel ring0 del sistema Linux."
