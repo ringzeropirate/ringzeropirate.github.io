@@ -32,7 +32,7 @@ relativeURLs = false
 
 [markup]
   [markup.highlight]
-    style = "monokai"
+    style = "dracula"
     lineNos = true
     lineNumbersInTable = false
     noClasses = false

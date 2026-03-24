@@ -85,3 +85,51 @@ A questo punta lasciamo la teoria per sporcarci le mani direttamente sulla shell
 
 Ma prima dobbiamo porci una domanda, quanto siamo esposti oggi? Mostriamo uno snippet che ce lo dice chiaramente; a titolo di esempio è stato preso il sito google.com :
 ![curl](/images/curl.png)
+
+Osservando questo output, un analista può osservare la “data di scadenza” della propria infrastruttura. Nonostante l’uso di protocolli moderni come **TLS 1.2**, l’impiego di rsaEncryption e ECDHE (Elliptic Curve Diffie-Hellman Ephemeral) espone il fianco a due minacce quantistiche immediate:
+
++ **L’Algoritmo di Shor:** In grado di risolvere il logaritmo discreto e la fattorizzazione, rendendo nulle le attuali chiavi pubbliche.
++ **L’instabilità della PKI:** Se la firma della CA è RSA, l’intera catena di fiducia crolla.
+
+## Lab in a Box
+
+Giunti a questo punto, la sfida si sposta sulla resilienza operativa: quali architetture crittografiche dobbiamo adottare fin da subito per garantire che i dati esfiltrati oggi restino indecifrabili anche nell’era del calcolo quantistico?  Come indicato dal Nist la soluzione adottabile nell’immediato è l’adozione di una soluzione ibrida utilizzando algoritmi classici + PQC .
+
+In questa sessione di laboratorio, approfondiremo l’implementazione di un server **Nginx** configurato con algoritmi **Post-Quantum (PQ)**. Per l’esercitazione utilizzeremo il framework **OpenQuantumSafe (OQS)** all’interno di un ambiente containerizzato Docker Desktop su Windows.
+
+Utilizzeremo l’ecosistema **liboqs**, una libreria C open source per algoritmi crittografici resistenti ai quantistici, integrata in Nginx tramite una versione modificata di OpenSSL.
+
+**Prerequisiti:**
+Assicurarsi di aver installato ed avviato Docker Desktop (Backend WSL2) sul proprio pc.
+
+**Stack tecnologico:**
+
++ **Server:** Immagine Docker openquantumsafe/nginx.
++ **Client:** Immagine Docker openquantumsafe/curl.
++ **Protocollo:** **TLS 1.3** con scambio chiavi Post-Quantum .
+
+**Step 1: Preparazione dell’ambiente**
+
+Assicuratevi che Docker Desktop sia avviato sul vostro sistema Windows. Aprite il terminale (PowerShell).
+
+Scarichiamo le immagini necessarie dal repository ufficiale di OpenQuantumSafe:
+![curl](/images/pull_nginx.png)
+![curl](/images/pull_curl.png)
+Verifichiamo le immagini scaricate:
+![curl](/images/ls.png)
+A questo punto creiamo una network in modo tale da porter far dialogare i container :
+![curl](/images/ntw.png)
+
+**Step 2: Configurazione e Avvio del Server Nginx**
+
+L’immagine openquantumsafe/nginx è pre-configurata con OpenSSL abilitato per la PQC. Per impostazione predefinita, il server è pronto ad accettare connessioni su una porta specifica utilizzando algoritmi ibridi o puramente quantistici.
+Affinchè possiamo constatare che tipo di  negoziazione siamo stabilendo, sono state inserite nel file di configurazione nginx.conf le seguenti righe per consentire di loggare le informazioni necessarie:
+```bash
+# --- LA DIRETTIVA VA DENTRO HTTP ---
+    log_format pqc_logs '$remote_addr - $remote_user [$time_local] '
+                        '"$request" $status $body_bytes_sent '
+                        '"$ssl_protocol" "$ssl_cipher" "$ssl_curve"';
+# --- LA DIRETTIVA VA DENTRO SERVER ---
+access_log  /opt/nginx/logs/access.log pqc_logs pqc_logs;
+```
+# test
