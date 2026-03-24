@@ -150,6 +150,7 @@ Eseguiamo due test di connessione puntando all’indirizzo IP locale (o al nome 
 + Il secondo test sarà effettuato forzando un algoritmo quantistico in modalità ibrida.
 
 #Primo test
+
 ![test1](/images/qday/test1.png)
 Questa stringa rappresenta i dettagli tecnici di una connessione sicura via TLS 1.3 (Transport Layer Security). In pratica, descrive le “regole del gioco” che il client (es. curl) e il server (es. NGINX) hanno concordato per proteggere i dati.
 
@@ -174,6 +175,7 @@ Questa è forse la parte più importante nel contesto della crittografia moderna
 + **Limite Quantistico:** Sebbene X25519 sia veloce e sicuro oggi, è vulnerabile ai futuri computer quantistici (tramite l’algoritmo di Shor).
 
 #Secondo Test
+
 ![test2](/images/qday/test2.png)
 Qui siamo passati a una connessione ibrida. Vediamo il dettaglio:
 
