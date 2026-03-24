@@ -149,9 +149,10 @@ Eseguiamo due test di connessione puntando all’indirizzo IP locale (o al nome 
 + Il primo test è effettuato senza richiedere la forzatura post quantistica per cui il server negozierà una connessione standard moderna molto sicura, ma ancora basata su crittografia classica “pre-quantistica”.
 + Il secondo test sarà effettuato forzando un algoritmo quantistico in modalità ibrida.
 
-#Primo test
+#Primo test 
 
 ![test1](/images/qday/test1.png)
+
 Questa stringa rappresenta i dettagli tecnici di una connessione sicura via TLS 1.3 (Transport Layer Security). In pratica, descrive le “regole del gioco” che il client (es. curl) e il server (es. NGINX) hanno concordato per proteggere i dati.
 
 È composta da due parti principali: la Cipher Suite e il Key Exchange Group.
