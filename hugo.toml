@@ -10,7 +10,7 @@ relativeURLs = false
 [params]
   description = "Ricerche offensive, kernel exploitation e difesa avanzata nel ring0 del sistema Linux."
   author = "RingZero Pirate"
-  githubURL = "https://github.com/tuousername/ringzero-pirate"
+  githubURL = "https://github.com/ringzeropirate"
   year = "2026"
   subtitle = "// kernel.ring0 — root or nothing //"
   keywords = ["cybersecurity", "kernel", "linux", "exploitation", "eBPF", "offensive security"]
@@ -24,7 +24,7 @@ relativeURLs = false
 
   [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/tuousername/ringzero-pirate"
+    url = "https://github.com/ringzeropirate"
     weight = 2
     pre = "<span class='menu-icon'>&#9670;</span>"
     [menu.main.params]
