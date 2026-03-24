@@ -32,7 +32,7 @@ Ecco una tabella rapida per capire l’impatto sugli algoritmi che usiamo ogni g
 | **RSA** | Asimmetrico | Totale (Shor) | Compromesso; andrà sostituito completamente. |
 | **ECC / ECDH** | Asimmettrico | Totale (Shor) | Compromesso; andrà sostituito completamente. |
 | **AES** | Simmetrico | Parziale (Grover) | Vulnerabile, la sicurezza si dimezza. AES-128 diventa insicuro, bisogna passare ad AES-256. |
-| **SHA-2 / SHA-3** | Hashing | Parziale | Sicuro, aumentare la dimensione dell’output (es. SHA-384) è sufficiente. |
+| **SHA-2/SHA-3** | Hashing | Parziale | Sicuro, aumentare la dimensione dell’output (es. SHA-384) è sufficiente. |
 
 Il NIST ha pubblicato i suoi principali standard PQC (definiti Federal Information Processing Standards o FIPS), specificando gli schemi di istituzione delle chiavi e di firma digitale basati sui candidati valutati e selezionati attraverso un processo pluriennale: FIPS-203, FIPS-204, FIPS-205 .
 Con il rilascio dei primi tre standard PQC definitivi, le organizzazioni dovrebbero iniziare a migrare i propri sistemi verso la crittografia quantistica.
@@ -40,9 +40,48 @@ Con il rilascio dei primi tre standard PQC definitivi, le organizzazioni dovrebb
 Il NIST prevede che i due standard di firma digitale (ML-DSA e SLH-DSA) e lo standard del meccanismo di incapsulamento delle chiavi (ML-KEM) forniranno la base per la maggior parte delle implementazioni della crittografia post-quantistica. Possono e devono essere utilizzati fin da ora. (Rif. https://csrc.nist.gov/projects/post-quantum-cryptography#pqc-standards)
 
 ## Post-Quantum Cryptography (PQC) – La soluzione software
-```
-Vantaggi	Limitazioni
-Compatibilità: Funziona su hardware e internet esistenti.	Dimensioni: Chiavi e firme sono più pesanti (maggior traffico dati).
-Costi Contenuti: Richiede solo aggiornamenti software.	Performance: Alcuni calcoli sono più lenti dei classici RSA/ECC.
-Scalabilità: Implementabile globalmente in tempi brevi.	Sicurezza Teorica: Si basa su ipotesi matematiche, non leggi fisiche.
-```
+
+La **PQC** si basa su algoritmi progettati per girare su computer attuali, ma strutturati su problemi matematici così complessi da resistere anche alla potenza di calcolo di un futuro computer quantistico.
+
+**Famiglie di Algoritmi Standardizzati (NIST)**
+- **Basata su Reticoli (Lattice-based):** È la famiglia più promettente. Include ML-KEM (ex Kyber) per lo scambio di chiavi e ML-DSA (ex Dilithium) per le firme. Si fondano su problemi come il Shortest Vector Problem.
+- **Basata su Codici (Code-based):** Deriva dal sistema McEliece. Estremamente sicura e studiata, ma soffre di chiavi pubbliche molto grandi.
+- **Basata su Hash (Hash-based):** Utilizzata per le firme digitali (es. SLH-DSA/SPHINCS+). La sicurezza dipende esclusivamente dalla robustezza delle funzioni hash, rendendola molto affidabile.
+- **Basata su Isogenie (Isogeny-based):** Sfrutta le proprietà delle curve ellittiche. Nonostante l’efficienza, il recente cracking dell’algoritmo SIKE ha invitato alla massima cautela.
+
+**Pro e Contro della PQC**
+
+| **Vantaggi** | **Limitazioni** |
+| :--- | :--- |
+| **Compatibilità:** Funziona su hardware e internet esistenti. | **Dimensioni:** Chiavi e firme sono più pesanti (maggior traffico dati). |
+| **Costi Contenuti:** Richiede solo aggiornamenti software. | **Performance:** Alcuni calcoli sono più lenti dei classici RSA/ECC. |
+| **Scalabilità:** Implementabile globalmente in tempi brevi. | **Sicurezza Teorica:** Si basa su ipotesi matematiche, non leggi fisiche. |
+
+## Quantum Key Distribution (QKD) – La soluzione fisica
+
+A differenza della **PQC**, la **QKD** non usa la matematica, ma le leggi della meccanica quantistica per distribuire chiavi crittografiche. Il protocollo principe è il **BB84**.
+
+**Principi Quantistici Fondamentali**
++ **Indeterminazione di Heisenberg:** Misurare un sistema quantistico lo altera inevitabilmente.
++ **Teorema di No-cloning:** È impossibile copiare uno stato quantistico ignoto senza distruggerlo.
+**Risultato:** Se un hacker tenta di intercettare la chiave durante la trasmissione, le particelle (fotoni) cambiano stato, rivelando immediatamente l’intrusione.
+
+**Limiti della QKD**
+
+Nonostante la sicurezza “teoricamente perfetta”, la QKD richiede **infrastrutture dedicate** (fibra ottica speciale o satelliti) e ha una **distanza limitata** (circa 200 km) a causa della perdita di segnale. Inoltre, non gestisce l’autenticazione, richiedendo comunque algoritmi classici o PQC per identificare le parti.
+
+**Analisi Comparativa**
+
+- **Modello di Sicurezza:** La PQC è “computazionale” (difficile da rompere), la QKD è “informatica-teoretica” (impossibile da rompere per leggi fisiche).
+- **Implementazione:** La PQC è Software-defined (patch e aggiornamenti); la QKD è Hardware-defined (nuove reti fisiche).
+- **Casi d’uso:** La PQC è la soluzione per il mass-market (web, banche, IoT). La QKD è riservata ad altissima sicurezza (militare, infrastrutture critiche, comunicazioni governative).
+La Soluzione con Approccio Ibrido
+
+La strategia vincente, definita Defense in Depth, prevede l’uso combinato di:
+
+Algoritmi Classici + PQC: Per garantire la sicurezza oggi e domani durante la transizione.
+PQC + QKD: Per i dati ultra-sensibili, dove la matematica della PQC protegge l’autenticazione e la fisica della QKD protegge la riservatezza della chiave.
+A questo punta lasciamo la teoria per sporcarci le mani direttamente sulla shell. Di seguito vedremo come costruire un lab per negoziare la prima connessione post-quantistica della vostra vita.
+
+Ma prima dobbiamo porci una domanda, quanto siamo esposti oggi? Mostriamo uno snippet che ce lo dice chiaramente; a titolo di esempio è stato preso il sito google.com :
+![/images/curl.png]
