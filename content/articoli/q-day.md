@@ -1,4 +1,4 @@
----``````
+---
 title: "Q-Day: Perché la crittografia attuale non è pronta per un avversario quantistico"
 date: 2026-01-17
 draft: false
@@ -40,3 +40,9 @@ Con il rilascio dei primi tre standard PQC definitivi, le organizzazioni dovrebb
 Il NIST prevede che i due standard di firma digitale (ML-DSA e SLH-DSA) e lo standard del meccanismo di incapsulamento delle chiavi (ML-KEM) forniranno la base per la maggior parte delle implementazioni della crittografia post-quantistica. Possono e devono essere utilizzati fin da ora. (Rif. https://csrc.nist.gov/projects/post-quantum-cryptography#pqc-standards)
 
 ## Post-Quantum Cryptography (PQC) – La soluzione software
+```
+Vantaggi	Limitazioni
+Compatibilità: Funziona su hardware e internet esistenti.	Dimensioni: Chiavi e firme sono più pesanti (maggior traffico dati).
+Costi Contenuti: Richiede solo aggiornamenti software.	Performance: Alcuni calcoli sono più lenti dei classici RSA/ECC.
+Scalabilità: Implementabile globalmente in tempi brevi.	Sicurezza Teorica: Si basa su ipotesi matematiche, non leggi fisiche.
+```
