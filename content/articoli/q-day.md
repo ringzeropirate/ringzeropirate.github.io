@@ -1,6 +1,6 @@
 ---
 title: "Q-Day: Perché la crittografia attuale non è pronta per un avversario quantistico"
-date: 2026-01-17
+date: 2026-01-27
 draft: false
 tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrategy, Engineeringlinux"]
 ---
@@ -84,4 +84,4 @@ PQC + QKD: Per i dati ultra-sensibili, dove la matematica della PQC protegge l�
 A questo punta lasciamo la teoria per sporcarci le mani direttamente sulla shell. Di seguito vedremo come costruire un lab per negoziare la prima connessione post-quantistica della vostra vita.
 
 Ma prima dobbiamo porci una domanda, quanto siamo esposti oggi? Mostriamo uno snippet che ce lo dice chiaramente; a titolo di esempio è stato preso il sito google.com :
-![/images/curl.png]
+![curl](/images/curl.png)
