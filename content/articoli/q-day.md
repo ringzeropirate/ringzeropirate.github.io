@@ -4,6 +4,13 @@ date: 2026-01-27
 draft: false
 tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrategy, Engineeringlinux"]
 ---
+#Q-Day: Perché la crittografia attuale non è pronta per un avversario quantistico
+
+**Autore:** Michele Piccinni  
+**Categoria:** How to di 8BS  
+**Tempo di lettura:** 11-16 minuti
+
+---
 
 ## Overview
 
@@ -18,6 +25,8 @@ L’evoluzione del calcolo quantistico pone una minaccia diretta agli algoritmi 
 In questo quadro, la crittografia non può più essere considerata un meccanismo limitato alla protezione delle credenziali o delle transazioni commerciali. È un componente strutturale della sicurezza nazionale, delle infrastrutture critiche e delle relazioni geopolitiche. La durata nel tempo del valore informativo dei dati diventa quindi un fattore centrale.
 
 Se un’informazione deve rimanere riservata per periodi di dieci, venti o più anni (come nel caso di dati sanitari, industriali o governativi) l’adozione esclusiva di schemi crittografici non resistenti a un avversario quantistico rappresenta già oggi un rischio che deve essere valutato e gestito.
+
+---
 
 ## Deep Dive Tecnico: PQC vs QKD e Algoritmi a Rischio
 
@@ -39,6 +48,8 @@ Con il rilascio dei primi tre standard PQC definitivi, le organizzazioni dovrebb
 
 Il NIST prevede che i due standard di firma digitale (ML-DSA e SLH-DSA) e lo standard del meccanismo di incapsulamento delle chiavi (ML-KEM) forniranno la base per la maggior parte delle implementazioni della crittografia post-quantistica. Possono e devono essere utilizzati fin da ora. (Rif. https://csrc.nist.gov/projects/post-quantum-cryptography#pqc-standards)
 
+---
+
 ## Post-Quantum Cryptography (PQC) – La soluzione software
 
 La **PQC** si basa su algoritmi progettati per girare su computer attuali, ma strutturati su problemi matematici così complessi da resistere anche alla potenza di calcolo di un futuro computer quantistico.
@@ -56,6 +67,8 @@ La **PQC** si basa su algoritmi progettati per girare su computer attuali, ma st
 | **Compatibilità:** Funziona su hardware e internet esistenti. | **Dimensioni:** Chiavi e firme sono più pesanti (maggior traffico dati). |
 | **Costi Contenuti:** Richiede solo aggiornamenti software. | **Performance:** Alcuni calcoli sono più lenti dei classici RSA/ECC. |
 | **Scalabilità:** Implementabile globalmente in tempi brevi. | **Sicurezza Teorica:** Si basa su ipotesi matematiche, non leggi fisiche. |
+
+---
 
 ## Quantum Key Distribution (QKD) – La soluzione fisica
 
@@ -90,6 +103,8 @@ Osservando questo output, un analista può osservare la “data di scadenza” d
 
 + **L’Algoritmo di Shor:** In grado di risolvere il logaritmo discreto e la fattorizzazione, rendendo nulle le attuali chiavi pubbliche.
 + **L’instabilità della PKI:** Se la firma della CA è RSA, l’intera catena di fiducia crolla.
+
+---
 
 ## Lab in a Box
 
@@ -149,6 +164,8 @@ Eseguiamo due test di connessione puntando all’indirizzo IP locale (o al nome 
 + Il primo test è effettuato senza richiedere la forzatura post quantistica per cui il server negozierà una connessione standard moderna molto sicura, ma ancora basata su crittografia classica “pre-quantistica”.
 + Il secondo test sarà effettuato forzando un algoritmo quantistico in modalità ibrida.
 
+---
+
 #Primo test 
 
 ![test1](/images/qday/test1.png)
@@ -175,6 +192,8 @@ Questa è forse la parte più importante nel contesto della crittografia moderna
 + **Cosa fa:** Permette a due parti di generare una chiave segreta condivisa su un canale pubblico senza mai scambiarsi la chiave stessa.
 + **Limite Quantistico:** Sebbene X25519 sia veloce e sicuro oggi, è vulnerabile ai futuri computer quantistici (tramite l’algoritmo di Shor).
 
+---
+
 #Secondo Test
 
 ![test2](/images/qday/test2.png)
@@ -199,6 +218,8 @@ Tabella Comparativa
 | **Dimensione Chiavi** | Piccole (~32 bytes) | **Grandi (~1200 bytes)** |
 | **Standardizzazione** | Consolidato | Nuovo standard NIST (FIPS 203)|
 | **Supporto Browser**  | Universale | Chrome 131+, Firefox 132+, Safari 2026+ |
+
+---
 
 ## Conclusioni
 In un’architettura ibrida (come questa X25519MLKEM768), il componente classico (X25519) non è presente come residuo “dimenticato”, ma svolge due funzioni critiche di “sicurezza combinata”:
@@ -250,3 +271,8 @@ docker run -v $(pwd):/opt/tmp -it openquantumsafe/curl openssl req -new -newkey 
 docker run -v $(pwd):/opt/tmp -it openquantumsafe/curl openssl x509 -req -in /opt/tmp/server.csr -out /opt/tmp/server.crt -CA /opt/tmp/CA.crt -CAkey /opt/tmp/CA.key -CAcreateserial -days 365
 ```
 Si consiglia di omettere l’opzione -nodes nel comando di generazione della chiave CA sopra indicato per garantire che la chiave sia crittografata. Sarà poi possibile conservarla in un luogo sicuro per usi futuri.
+
+---
+
+**Articolo di:** Michele Piccinni  
+**Fonte:** [8BitSecurity Blog](https://blog.8bitsecurity.com)
