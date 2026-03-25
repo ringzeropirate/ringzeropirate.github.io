@@ -1,1 +1,1 @@
-https://github.com/ringzeropirate.github.io
+https://ringzeropirate.github.io
