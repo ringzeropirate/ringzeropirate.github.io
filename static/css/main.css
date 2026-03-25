@@ -732,7 +732,10 @@ pre code { background: transparent; padding: 0; color: inherit; }
   font-family: var(--font-body);
   font-size: 1.15rem;
   color: var(--text);
-  text-align: center;
+  text-align: justify;         /* Giustifica il testo */
+  text-justify: inter-word;    /* Ottimizza lo spazio tra le parole */
+  hyphens: auto;           /* <--- AGGIUNTA QUI */
+  word-break: break-word;
 }
 .post-content h2 { font-size: 1.4rem; color: var(--green); margin: 2.5rem 0 1rem; padding-left: .75rem; border-left: 3px solid var(--green); }
 .post-content h3 { font-size: 1.15rem; color: var(--cyan); margin: 2rem 0 .75rem; }
