@@ -4,7 +4,6 @@ date: 2026-01-27
 draft: false
 tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrategy, Engineeringlinux"]
 ---
-# Q-Day: Perché la crittografia attuale non è pronta per un avversario quantistico
 
 **Autore:** Michele Piccinni  
 **Categoria:** How to di 8BS  
