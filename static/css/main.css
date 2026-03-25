@@ -826,6 +826,20 @@ pre code { background: transparent; padding: 0; color: inherit; }
   letter-spacing: .04em;
 }
 
+.footer-social a {
+    color: #0077b5; /* Il blu ufficiale di LinkedIn */
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-social a:hover {
+    opacity: 0.7;
+}
+
+.footer-social svg {
+    vertical-align: middle;
+}
+
 .footer-project {
   font-size: .82rem;
   color: var(--cyan-dim);
