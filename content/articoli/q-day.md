@@ -12,7 +12,9 @@ tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrate
 
 ---
 
-## Overview
+![Copertina articolo DNS Cache Poisoning](/images/dns/cover.png)
+
+## Introduzione
 
 L’evoluzione del calcolo quantistico pone una minaccia diretta agli algoritmi crittografici attualmente più diffusi, come RSA e Diffie-Hellman, che costituiscono la base della sicurezza delle comunicazioni moderne, poiché non sono progettati per resistere ad avversari dotati di capacità quantistiche sufficientemente avanzate. Per affrontare questo scenario stanno emergendo la Crittografia Post-Quantistica e la Quantum Key Distribution.
 
