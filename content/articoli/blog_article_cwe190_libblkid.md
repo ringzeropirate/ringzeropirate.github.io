@@ -1,4 +1,4 @@
-draft: false
+draft: true
 
 # CVE-XXXX-XXXXX: Integer Overflow in libblkid Exposes MBR to Partition Parser
 
