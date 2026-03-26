@@ -456,9 +456,9 @@ pre code { background: transparent; padding: 0; color: inherit; }
 /* ── Hero title row ─────────────────────── */
 .hero-title-row {
   display: flex;
-  flex-direction: row;      /* esplicito */
+  flex-direction: row;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(1.5rem, 3vw, 4rem);   /* gap dinamico */
   width: 100%;
 }
 
@@ -470,10 +470,11 @@ pre code { background: transparent; padding: 0; color: inherit; }
 .zero { color: var(--cyan); text-shadow: var(--glow-cyan); }
 
 .logo-glitch {
-  flex: 0 0 140px;
+  flex: 0 0 auto;
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: clamp(120px, 18vw, 280px);   /* scala come il titolo */
+  height: clamp(120px, 18vw, 280px);
+  mix-blend-mode: screen;
 }
 
 .logo-glitch img {
