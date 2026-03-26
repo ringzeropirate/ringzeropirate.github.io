@@ -472,8 +472,8 @@ pre code { background: transparent; padding: 0; color: inherit; }
 .logo-glitch {
   flex: 0 0 auto;
   position: relative;
-  width: clamp(360px, 25vw, 580px);
-  height: clamp(360px, 25vw, 580px);
+  width: clamp(480px, 28vw, 1024px);
+  height: clamp(480px, 28vw, 1024px);
   /*mix-blend-mode: screen;*/
 }
 
