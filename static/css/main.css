@@ -456,18 +456,24 @@ pre code { background: transparent; padding: 0; color: inherit; }
 /* ── Hero title row ─────────────────────── */
 .hero-title-row {
   display: flex;
+  flex-direction: row;      /* esplicito */
   align-items: center;
   gap: 3rem;
+  width: 100%;
+}
+
+.hero-title-row .glitch-title {
+  flex: 0 0 auto;           /* impedisce all'h1 di espandersi */
 }
 
 .ring { color: var(--text-bright); }
 .zero { color: var(--cyan); text-shadow: var(--glow-cyan); }
 
 .logo-glitch {
+  flex: 0 0 140px;
   position: relative;
   width: 140px;
   height: 140px;
-  flex-shrink: 0;
 }
 
 .logo-glitch img {
@@ -479,8 +485,6 @@ pre code { background: transparent; padding: 0; color: inherit; }
 }
 
 .logo-main {
-  filter: drop-shadow(0 0 12px var(--cyan))
-          drop-shadow(0 0 24px var(--cyan));
   animation: glitch-1 4s infinite;
 }
 
