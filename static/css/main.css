@@ -458,7 +458,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: clamp(1.5rem, 3vw, 4rem);   /* gap dinamico */
+  gap: clamp(1.5rem, 3vw, 4rem);
   width: 100%;
 }
 
@@ -472,7 +472,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
 .logo-glitch {
   flex: 0 0 auto;
   position: relative;
-  width: clamp(160px, 22vw, 380px);   /* scala come il titolo */
+  width: clamp(160px, 22vw, 380px);
   height: clamp(160px, 22vw, 380px);
   mix-blend-mode: screen;
 }
@@ -945,6 +945,17 @@ pre code { background: transparent; padding: 0; color: inherit; }
 
 /* ── Responsive ─────────────────────────── */
 @media (max-width: 768px) {
+   .hero-title-row {
+    flex-direction: column;       /* stack verticale */
+    align-items: flex-start;      /* allineato a sinistra come il testo */
+    gap: 1.5rem;
+  }
+
+  .logo-glitch {
+    width: clamp(80px, 35vw, 160px);   /* scala sul viewport mobile */
+    height: clamp(80px, 35vw, 160px);
+    align-self: center;                /* logo centrato sotto il titolo */
+  }
   .header-inner { flex-wrap: wrap; gap: .75rem; }
 
   .nav-toggle { display: flex; }
@@ -966,6 +977,13 @@ pre code { background: transparent; padding: 0; color: inherit; }
   .ar-left { flex-direction: row; }
 
   .pf-nav { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .logo-glitch {
+    width: 45vw;    /* occupa quasi metà schermo su telefoni piccoli */
+    height: 45vw;
+  }
 }
 
 /* ── 404 page ───────────────────────────── */
