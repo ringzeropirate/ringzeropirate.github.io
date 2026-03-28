@@ -6,9 +6,8 @@ tags: ["sudo", "privilege-escalation", "vulnerability-research", "responsible-di
 categories: ["Offensive Security", "Vulnerability Research"]
 description: "Ricerca di sicurezza indipendente che individua sette gap di hardening nelle variabili d'ambiente in sudo 1.9.17p2 / 1.9.18rc1 nelle condizioni !env_reset e sudo -E. Dall'analisi statica del sorgente alla validazione in Docker lab, fino alla divulgazione coordinata con il maintainer upstream Todd Miller."
 draft: false
-**Tempo di lettura:** 16 minuti
 ---
-
+**Tempo di lettura:** 16 minuti
 ![Copertina sudo](/images/sudo/sudo_finding.png)
 
 ---
