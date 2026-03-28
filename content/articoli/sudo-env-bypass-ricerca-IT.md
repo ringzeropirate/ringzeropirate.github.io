@@ -478,7 +478,7 @@ Come sempre: **aggiorna prima, audita spesso e non fidarti mai dell'ambiente.**
 | Data | Evento |
 |---|---|
 | 2026-03-14 | Analisi statica di `env.c` — inizio ricerca |
-| 2026-03-15 | Validazione Docker lab — 7 confermati / 4 falsi positivi scartati |
+| 2026-03-15 | Validazione Docker lab — 7 confermati / 4 falsi positivi scartati | 
 | 2026-03-16 | Email di disclosure inviata a Todd C. Miller |
 | 2026-03-19 | Todd riconosce i finding, chiede coordinamento sulla pubblicazione |
 | 2026-03-28 | Fix committato da Todd C. Miller — [`40217ea`](https://github.com/sudo-project/sudo/commit/40217ea5a3c632b8b6377d8393544343dca77abe) — *"From Michele Piccinni"* — sudo 1.9.18 |
@@ -496,6 +496,7 @@ Come sempre: **aggiorna prima, audita spesso e non fidarti mai dell'ambiente.**
 - [OpenJDK — Comportamento di _JAVA_OPTIONS](https://bugs.openjdk.org/browse/JDK-4971166)
 - [Git — GIT_SSH_COMMAND](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode)
 - [sudoers(5) — Documentazione SETENV / NOSETENV](https://www.sudo.ws/docs/man/sudoers.man/)
+- [Docker Lab] (https://github.com/ringzeropirate/ringzeropirate.github.io/tree/main/scripts/Sudo_EnvGap_Lab.tar.gz) 
 
 ---
 
