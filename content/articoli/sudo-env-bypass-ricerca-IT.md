@@ -8,6 +8,10 @@ description: "Ricerca di sicurezza indipendente che individua sette gap di harde
 draft: false
 ---
 
+![Copertina sudo](/images/sudo/sudo_finding.png)
+
+---
+
 > **Nota di Responsible Disclosure** — Tutti i finding descritti in questo articolo sono stati comunicati a Todd C. Miller (maintainer di sudo) prima della pubblicazione. Il fix upstream è stato committato nel repository [sudo-project/sudo](https://github.com/sudo-project/sudo). La timeline completa è riportata in fondo all'articolo.
 
 ---
