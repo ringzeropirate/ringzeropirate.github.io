@@ -9,7 +9,7 @@ draft: false
 ---
 
 ![Copertina sudo](/images/sudo/sudo_finding.png)
-
+**Tempo di lettura:** 16 minuti
 ---
 
 > **Nota di Responsible Disclosure** — Tutti i finding descritti in questo articolo sono stati comunicati a Todd C. Miller (maintainer di sudo) prima della pubblicazione. Il fix upstream è stato committato nel repository [sudo-project/sudo](https://github.com/sudo-project/sudo). La timeline completa è riportata in fondo all'articolo.
@@ -500,7 +500,7 @@ Come sempre: **aggiorna prima, audita spesso e non fidarti mai dell'ambiente.**
 - [OpenJDK — Comportamento di _JAVA_OPTIONS](https://bugs.openjdk.org/browse/JDK-4971166)
 - [Git — GIT_SSH_COMMAND](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode)
 - [sudoers(5) — Documentazione SETENV / NOSETENV](https://www.sudo.ws/docs/man/sudoers.man/)
-- [Docker Lab - Sudo_EnvGAP_Lab.tar.gz] (https://github.com/ringzeropirate/ringzeropirate.github.io/tree/main/scripts/Sudo_EnvGap_Lab.tar.gz) 
+- [Docker Lab - Sudo_EnvGAP_Lab.tar.gz](https://github.com/ringzeropirate/ringzeropirate.github.io/tree/main/scripts/Sudo_EnvGap_Lab.tar.gz) 
 
 ---
 
