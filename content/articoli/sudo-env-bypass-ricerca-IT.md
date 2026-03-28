@@ -8,6 +8,7 @@ description: "Ricerca di sicurezza indipendente che individua sette gap di harde
 draft: false
 ---
 **Tempo di lettura:** 16 minuti
+---
 ![Copertina sudo](/images/sudo/sudo_finding.png)
 
 ---
