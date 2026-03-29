@@ -1,7 +1,7 @@
 ---
 title: "Hunting Silent Privilege Escalation: 7 Environment Variable Bypass Gaps in sudo's env.c"
 date: 2026-03-28
-author: "Michele Piccinni"
+author: "Michele Piccinni aka RZP"
 tags: ["sudo", "privilege-escalation", "vulnerability-research", "responsible-disclosure", "linux", "env-bypass", "hardening"]
 categories: ["Offensive Security", "Vulnerability Research"]
 description: "Independent security research uncovering seven environment variable hardening gaps in sudo 1.9.17p2 / 1.9.18rc1 under !env_reset and sudo -E conditions, including a broader attack surface on Ubuntu's default configuration. From static analysis through Docker lab validation to coordinated upstream disclosure with Todd Miller."
