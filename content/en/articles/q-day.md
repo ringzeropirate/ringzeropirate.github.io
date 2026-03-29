@@ -8,7 +8,7 @@ tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrate
 
 **Author:** Michele Piccinni  
 **Category:** Explainers  
-**Reading Time:** 8 min read
+**Reading Time:** 11-16 minutes
 
 ---
 

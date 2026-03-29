@@ -37,7 +37,7 @@
     </div>
 
     <div class="hero-cta">
-      <a href="/articoli/" class="cta-btn primary">
+      <a href="{{ if eq .Language.Lang "en" }}/en/articles/{{ else }}/articoli/{{ end }}" class="cta-btn primary">
         <span>cat articoli.pirate</span>
         <span class="btn-cursor">█</span>
       </a>
@@ -55,7 +55,9 @@
 </section>
 
 <!-- Latest Articles -->
-{{ $posts := where .Site.RegularPages "Section" "articoli" }}
+{{ $section := "articoli" }}
+{{ if eq .Language.Lang "en" }}{{ $section = "articles" }}{{ end }}
+{{ $posts := where .Site.RegularPages "Section" $section }}
 {{ if $posts }}
 <section class="latest-posts">
   <div class="section-header">
