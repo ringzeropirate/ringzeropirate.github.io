@@ -1,5 +1,5 @@
 baseURL = "https://ringzeropirate.github.io/"
-languageCode = "it-IT"
+#languageCode = "it-IT"
 title = "RingZero Pirate"
 theme = "ringzero"
 paginate = 10
@@ -7,6 +7,23 @@ enableRobotsTXT = true
 enableEmoji = true
 relativeURLs = false
 
+# ── Multilingual ─────────────────────────
+defaultContentLanguage = "it"
+defaultContentLanguageInSubdir = false   # italiano alla root /
+
+[languages]
+  [languages.it]
+    languageName = "IT"
+    languageCode = "it-IT"
+    contentDir   = "content/it"
+    weight       = 1
+
+  [languages.en]
+    languageName = "EN"
+    languageCode = "en-US"
+    contentDir   = "content/en"
+    weight       = 2
+	
 [params]
   description = "Ricerche offensive, kernel exploitation e difesa avanzata nel ring0 del sistema Linux."
   author = "RingZero Pirate"
