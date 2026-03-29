@@ -1,5 +1,6 @@
 ---
 title: "Hunting Silent Privilege Escalation: 7 Environment Variable Bypass Gaps in sudo's env.c"
+translationKey: "sudo-env-bypass"
 date: 2026-03-28
 author: "Michele Piccinni aka RZP"
 tags: ["sudo", "privilege-escalation", "vulnerability-research", "responsible-disclosure", "linux", "env-bypass", "hardening"]
