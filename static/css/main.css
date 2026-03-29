@@ -1049,3 +1049,29 @@ pre code { background: transparent; padding: 0; color: inherit; }
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* ── Language switcher ──────────────────── */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  border-left: 1px solid var(--border);
+  padding-left: 1rem;
+}
+
+.lang-btn {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: var(--text-dim);
+  padding: .3em .6em;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  letter-spacing: .08em;
+  transition: all var(--transition);
+}
+
+.lang-btn:hover {
+  color: var(--green);
+  border-color: var(--border-glow);
+  background: var(--green-dark);
+}
