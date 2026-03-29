@@ -5,8 +5,6 @@ draft: false
 tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrategy, Engineeringlinux"]
 ---
 
-# Q-Day: Why Current Cryptography Is Not Ready for a Quantum Adversary
-
 **Author:** Michele Piccinni  
 **Category:** Explainers  
 **Reading Time:** 8 min read
@@ -332,31 +330,5 @@ It is recommended to omit the -nodes option in the CA key generation command to 
 
 ---
 
-## Related Articles
-
-![How to Execute a DNS Cache Poisoning Attack: Between Entropy and Post-Quantum](https://8bitsecurity.com/images/eDy1t1mY0u-300.jpeg)
-
-### [How to Execute a DNS Cache Poisoning Attack: Between Entropy and Post-Quantum](https://8bitsecurity.com/posts/how-to-execute-a-dns-cache-poisoning-attack-between-entropy-and-post-quantum/)
-
-![How to attack Large Language Models using Poetry](https://8bitsecurity.com/images/oL91tK4sHg-300.jpeg)
-
-### [How to attack Large Language Models using Poetry](https://8bitsecurity.com/posts/how-to-attack-large-language-models-using-poetry/)
-
-![Chain-Of-Thoughts Hijacking against Reasoning Models](https://8bitsecurity.com/images/7xqRhUMYR3-300.jpeg)
-
-### [Chain-Of-Thoughts Hijacking against Reasoning Models](https://8bitsecurity.com/posts/chain-of-thoughts-hijacking-against-reasoning-models/)
-
-![Threat Hunting Cobalt Strike The Final Guide: From the Depths of Beaconing to C2 Infrastructure](https://8bitsecurity.com/images/pAxgM2TrTy-300.jpeg)
-
-### [Threat Hunting Cobalt Strike The Final Guide: From the Depths of Beaconing to C2 Infrastructure](https://8bitsecurity.com/posts/threat-hunting-cobalt-strike-the-final-guide-from-the-depths-of-beaconing-to-c2-infrastructure/)
-
-![Malware Analysis: Reverse Engineering of an ELF File (Linux)](https://8bitsecurity.com/images/zq-NE5g3jY-300.jpeg)
-
-### [Malware Analysis: Reverse Engineering of an ELF File (Linux)](https://8bitsecurity.com/posts/malware-analysis-reverse-engineering-of-an-elf-file-linux/)
-
----
-
 **Source:** [8BitSecurity](https://8bitsecurity.com/)  
 **Article URL:** https://8bitsecurity.com/posts/q-day-why-current-cryptography-is-not-ready-for-a-quantum-adversary/
-
-

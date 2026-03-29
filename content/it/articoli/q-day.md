@@ -11,7 +11,7 @@ tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrate
 
 ---
 
-![Copertina articolo DNS Cache Poisoning](/images/dns/cover.png)
+![Cover ](/images/dns/cover.png)
 
 ## Introduzione
 

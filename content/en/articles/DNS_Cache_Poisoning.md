@@ -1,4 +1,9 @@
-# How to Execute a DNS Cache Poisoning Attack: Between Entropy and Post-Quantum
+---
+title: "How to Execute a DNS Cache Poisoning Attack: Between Entropy and Post-Quantum"
+date: 2026-03-12
+draft: false
+tags: ["Cybersecurity,Hacking, Threatintelligence, ArtificialIntelligence"]
+---
 
 **Author:** Michele Piccinni  
 **Category:** How to di 8BS  
@@ -6,7 +11,7 @@
 
 ---
 
-![Cover image DNS Cache Poisoning](https://blog.8bitsecurity.com/wp-content/uploads/2026/03/mp-02-cover.png?w=1024)
+![Copertina articolo DNS Cache Poisoning](/images/dns/cover.png)
 
 ## Introduction
 
