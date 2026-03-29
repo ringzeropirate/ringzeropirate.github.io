@@ -1,6 +1,6 @@
 ---
 title: "Hunting Silent Privilege Escalation: 7 Environment Variable Bypass Gaps in sudo's env.c"
-date: 2025-03-27
+date: 2026-03-28
 author: "Michele Piccinni"
 tags: ["sudo", "privilege-escalation", "vulnerability-research", "responsible-disclosure", "linux", "env-bypass", "hardening"]
 categories: ["Offensive Security", "Vulnerability Research"]
