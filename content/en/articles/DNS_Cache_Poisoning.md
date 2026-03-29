@@ -1,5 +1,6 @@
 ---
 title: "How to Execute a DNS Cache Poisoning Attack: Between Entropy and Post-Quantum"
+translationKey: "dns-cache-poisoning" 
 date: 2026-03-12
 draft: false
 tags: ["Cybersecurity,Hacking, Threatintelligence, ArtificialIntelligence"]
