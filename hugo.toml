@@ -32,21 +32,32 @@ defaultContentLanguageInSubdir = false   # italiano alla root /
   subtitle = "// kernel.ring0 — root or nothing //"
   keywords = ["cybersecurity", "kernel", "linux", "exploitation", "eBPF", "offensive security"]
 
-[menu]
-  [[menu.main]]
-    name = "Articoli"
-    url = "/articoli/"
-    weight = 1
-    pre = "<span class='menu-icon'>&#9632;</span>"
+# Menu italiano
+[[languages.it.menus.main]]
+name   = "Articoli"
+url    = "/articoli/"
+weight = 1
 
-  [[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/ringzeropirate/ringzeropirate.github.io/tree/main/scripts"
-    weight = 2
-    pre = "<span class='menu-icon'>&#9670;</span>"
-    [menu.main.params]
-      external = true
+[[languages.it.menus.main]]
+name   = "GitHub"
+url    = "https://github.com/ringzeropirate"
+weight = 2
+[languages.it.menus.main.params]
+  external = true
 
+# Menu inglese
+[[languages.en.menus.main]]
+name   = "Articles"
+url    = "/en/articles/"
+weight = 1
+
+[[languages.en.menus.main]]
+name   = "GitHub"
+url    = "https://github.com/ringzeropirate"
+weight = 2
+[languages.en.menus.main.params]
+  external = true
+  
 [markup]
   [markup.highlight]
     style = "dracula"

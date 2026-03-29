@@ -1060,18 +1060,34 @@ pre code { background: transparent; padding: 0; color: inherit; }
 }
 
 .lang-btn {
-  font-family: var(--font-mono);
-  font-size: .75rem;
-  color: var(--text-dim);
-  padding: .3em .6em;
-  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .45rem .9rem;
+  font-size: .82rem;
+  color: var(--text);
+  border: 1px solid transparent;
   border-radius: var(--radius);
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   transition: all var(--transition);
+  position: relative;
+}
+
+.lang-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--green);
+  transition: width var(--transition);
 }
 
 .lang-btn:hover {
   color: var(--green);
   border-color: var(--border-glow);
   background: var(--green-dark);
+}
+
+.lang-btn:hover::before {
+  width: 100%;
 }
