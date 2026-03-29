@@ -64,7 +64,7 @@
     <h2 class="section-title">
       <span class="sh-bracket">//</span> Latest Articles
     </h2>
-    <a href="/articoli/" class="view-all">ls -la /articoli →</a>
+    <a href="{{ if eq .Language.Lang "en" }}/en/articles/{{ else }}/articoli/{{ end }}" class="view-all">ls -la {{ if eq .Language.Lang "en" }}/articles{{ else }}/articoli{{ end }} →</a>
   </div>
 
   <div class="posts-grid">
