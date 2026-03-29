@@ -8,6 +8,13 @@ description: "Independent security research uncovering seven environment variabl
 draft: false
 ---
 
+**Tempo di lettura:** 16 minutes
+
+---
+![Copertina sudo](/images/sudo/sudo_finding.png)
+
+---
+
 > **Responsible Disclosure Notice** — All findings described in this article were reported to Todd C. Miller (sudo maintainer) prior to publication. The upstream fix has been committed to the [sudo-project/sudo](https://github.com/sudo-project/sudo) repository. Full timeline is disclosed at the end of this article.
 
 ---
