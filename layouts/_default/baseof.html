@@ -49,12 +49,12 @@
           {{ end }}
         </ul>
         <!-- Language switcher -->
-<!-- Language switcher statico -->
+<!-- Language switcher -->
 <div class="lang-switch">
-  {{ if eq .Language.Lang "it" }}
-    <a href="/en/" class="lang-btn" hreflang="en">EN</a>
-  {{ else }}
-    <a href="/" class="lang-btn" hreflang="it">IT</a>
+  {{ range .Translations }}
+  <a href="{{ .RelPermalink }}" class="lang-btn" hreflang="{{ .Language.Lang }}">
+    {{ .Language.LanguageName }}
+  </a>
   {{ end }}
 </div>
       </nav>
