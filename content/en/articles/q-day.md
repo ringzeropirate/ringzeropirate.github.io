@@ -1,5 +1,6 @@
 ---
 title: "Q-Day: Why Current Cryptography Is Not Ready for a Quantum Adversary"
+translationKey: "q-day"
 date: 2026-01-27
 draft: false
 tags: ["CyberSecurity, QuantumComputing, Cryptography, Infosec, TechnologyStrategy, Engineeringlinux"]
