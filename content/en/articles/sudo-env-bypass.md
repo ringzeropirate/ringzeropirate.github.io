@@ -9,7 +9,7 @@ description: "Independent security research uncovering seven environment variabl
 draft: false
 ---
 
-**Tempo di lettura:** 16 minutes
+**Reading Time:** 16 minutes
 
 ---
 ![Copertina sudo](/images/sudo/sudo_finding.png)
