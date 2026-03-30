@@ -923,6 +923,9 @@ pre code { background: transparent; padding: 0; color: inherit; }
 
 /* ── Syntax highlight override ──────────── */
 .highlight pre { border-left-color: none }
+.highlight td:last-child pre {
+  border-left: none;
+}
 
 /* ── Pagination ─────────────────────────── */
 .pagination {
@@ -1103,7 +1106,6 @@ pre code { background: transparent; padding: 0; color: inherit; }
 }
 
 .highlight table td:last-child {
-  border-left: 3px solid var(--orange);
   padding-left: 0.8em;
 }
 
