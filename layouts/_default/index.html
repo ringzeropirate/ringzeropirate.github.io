@@ -38,7 +38,7 @@
 
     <div class="hero-cta">
       <a href="{{ if eq .Language.Lang "en" }}/en/articles/{{ else }}/articoli/{{ end }}" class="cta-btn primary">
-        <span>cat articoli.pirate</span>
+        <span>{{ if eq .Language.Lang "en" }}cat articles.pirate{{ else }}cat articoli.pirate{{ end }}</span>
         <span class="btn-cursor">█</span>
       </a>
       <a href="{{ .Site.Params.githubURL }}" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
@@ -62,7 +62,7 @@
 <section class="latest-posts">
   <div class="section-header">
     <h2 class="section-title">
-      <span class="sh-bracket">//</span> Latest Articles
+      <span class="sh-bracket">//</span> <span class="sh-bracket">//</span> {{ if eq .Language.Lang "en" }}Latest Articles{{ else }}Ultimi Articoli{{ end }}
     </h2>
     <a href="{{ if eq .Language.Lang "en" }}/en/articles/{{ else }}/articoli/{{ end }}" class="view-all">ls -la {{ if eq .Language.Lang "en" }}/articles{{ else }}/articoli{{ end }} →</a>
   </div>
