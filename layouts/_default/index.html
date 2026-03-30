@@ -62,7 +62,7 @@
 <section class="latest-posts">
   <div class="section-header">
     <h2 class="section-title">
-      <span class="sh-bracket">//</span> <span class="sh-bracket">//</span> {{ if eq .Language.Lang "en" }}Latest Articles{{ else }}Ultimi Articoli{{ end }}
+      <span class="sh-bracket">//</span>{{ if eq .Language.Lang "en" }}Latest Articles{{ else }}Ultimi Articoli{{ end }}
     </h2>
     <a href="{{ if eq .Language.Lang "en" }}/en/articles/{{ else }}/articoli/{{ end }}" class="view-all">ls -la {{ if eq .Language.Lang "en" }}/articles{{ else }}/articoli{{ end }} →</a>
   </div>
