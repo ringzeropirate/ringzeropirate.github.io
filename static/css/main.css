@@ -830,7 +830,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
   text-justify: inter-word;    /* Ottimizza lo spazio tra le parole */
   hyphens: auto;           /* <--- AGGIUNTA QUI */
   word-break: break-word;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 .post-content h2 { font-size: 1.4rem; color: var(--green); margin: 2.5rem 0 1rem; padding-left: .75rem; border-left: 3px solid var(--green); }
 .post-content h3 { font-size: 1.15rem; color: var(--cyan); margin: 2rem 0 .75rem; }
@@ -850,7 +850,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
 /*.post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }*/
 .post-content table:not(.highlight table) { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }
 .post-content th { background: var(--bg-panel); color: var(--green); border: 1px solid var(--border); padding: .6rem 1rem; text-align: left; }
-.post-content td { border: 1px solid var(--border); padding: .6rem 1rem; }
+.post-content td:not(.highlight td) { border: 1px solid var(--border); padding: .6rem 1rem; }
 .post-content tr:nth-child(even) td { background: var(--bg-panel); }
 
 /* Post footer nav */
@@ -1153,5 +1153,25 @@ pre code { background: transparent; padding: 0; color: inherit; }
   overflow-x: auto;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+.highlight {
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) var(--bg-panel);
+}
+
+.highlight::-webkit-scrollbar {
+  height: 4px;
+}
+
+.highlight::-webkit-scrollbar-track {
+  background: var(--bg-panel);
+}
+
+.highlight::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 2px;
 }
 
