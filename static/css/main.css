@@ -97,7 +97,7 @@ code, pre {
   font-family: var(--font-code);
 }
 
-pre {
+/*pre {
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-left: 3px solid var(--green);
@@ -105,6 +105,40 @@ pre {
   overflow-x: auto;
   border-radius: var(--radius);
   margin: 1.5rem 0;
+}*/
+pre {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  padding: 1.25rem;
+  overflow-x: auto;          /* scroll solo sul codice */
+  overflow-y: hidden;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+  max-width: 100%;           /* non sfora mai il contenitore */
+
+  /* Scrollbar verde fluo */
+  scrollbar-width: thin;                        /* Firefox */
+  scrollbar-color: var(--green) var(--bg-panel); /* Firefox */
+}
+
+/* Chrome / Safari / Edge */
+pre::-webkit-scrollbar {
+  height: 4px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--bg-panel);
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 2px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: var(--green-dim);
+  box-shadow: var(--glow-green);
 }
 
 code {
@@ -797,6 +831,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
   text-justify: inter-word;    /* Ottimizza lo spazio tra le parole */
   hyphens: auto;           /* <--- AGGIUNTA QUI */
   word-break: break-word;
+  overflow-x: hidden;
 }
 .post-content h2 { font-size: 1.4rem; color: var(--green); margin: 2.5rem 0 1rem; padding-left: .75rem; border-left: 3px solid var(--green); }
 .post-content h3 { font-size: 1.15rem; color: var(--cyan); margin: 2rem 0 .75rem; }
