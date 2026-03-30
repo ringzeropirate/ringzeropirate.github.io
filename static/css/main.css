@@ -112,7 +112,6 @@ pre {
   border-left: 3px solid var(--green);
   padding: 1.25rem;
   overflow-x: auto;          /* scroll solo sul codice */
-  overflow-y: hidden;
   border-radius: var(--radius);
   margin: 1.5rem 0;
   max-width: 100%;           /* non sfora mai il contenitore */
@@ -1149,3 +1148,10 @@ pre code { background: transparent; padding: 0; color: inherit; }
   width: 100%;
   border-collapse: collapse;
 }
+
+.post-content pre {
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
