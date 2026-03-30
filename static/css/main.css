@@ -1094,8 +1094,6 @@ pre code { background: transparent; padding: 0; color: inherit; }
   width: 100%;
 }
 
-/* ── Line numbers syntax highlight ─────── */
-/* Tabella syntax highlight */
 .highlight table {
   width: 100%;
   border-collapse: collapse;
@@ -1103,16 +1101,26 @@ pre code { background: transparent; padding: 0; color: inherit; }
   font-size: inherit;
 }
 
+.highlight table td {
+  padding: 0;
+  border: none;
+}
+
 .highlight table td:first-child {
+  width: 2em;
+  min-width: 2em;
   padding-right: 1.2em;
   padding-left: 0.5em;
   color: var(--text-dim);
   user-select: none;
   text-align: right;
-  min-width: 2em;
+  background: transparent;   /* ← toglie il grigio */
   border-right: 1px solid var(--border);
+  font-size: 0.8em;
+  opacity: 0.5;
 }
 
 .highlight table td:last-child {
   padding-left: 1em;
+  width: 100%;
 }
