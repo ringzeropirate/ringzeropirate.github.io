@@ -815,7 +815,6 @@ pre code { background: transparent; padding: 0; color: inherit; }
 .post-content img { max-width: 100%; border-radius: var(--radius); border: 1px solid var(--border); }
 /*.post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }*/
 .post-content table:not(.highlight table) { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }
-
 .post-content th { background: var(--bg-panel); color: var(--green); border: 1px solid var(--border); padding: .6rem 1rem; text-align: left; }
 .post-content td { border: 1px solid var(--border); padding: .6rem 1rem; }
 .post-content tr:nth-child(even) td { background: var(--bg-panel); }
@@ -923,7 +922,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
 }
 
 /* ── Syntax highlight override ──────────── */
-.highlight pre { border-left-color: var(--cyan); }
+.highlight pre { border-left-color: none }
 
 /* ── Pagination ─────────────────────────── */
 .pagination {
@@ -1094,33 +1093,20 @@ pre code { background: transparent; padding: 0; color: inherit; }
   width: 100%;
 }
 
-.highlight table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0;
-  font-size: inherit;
-}
-
-.highlight table td {
-  padding: 0;
-  border: none;
-}
-
+/* ── Line numbers syntax highlight ─────── */
 .highlight table td:first-child {
-  width: 2em;
-  min-width: 2em;
   padding-right: 1.2em;
-  padding-left: 0.5em;
   color: var(--text-dim);
-  user-select: none;
+  user-select: none;        /* non selezionabile quando copi il codice */
   text-align: right;
-  background: transparent;   /* ← toglie il grigio */
-  border-right: 1px solid var(--border);
-  font-size: 0.8em;
-  opacity: 0.5;
+  min-width: 2em;
 }
 
 .highlight table td:last-child {
-  padding-left: 1em;
+  padding-left: 0.8em;
+}
+
+.highlight table {
   width: 100%;
+  border-collapse: collapse;
 }
