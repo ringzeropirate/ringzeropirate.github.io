@@ -813,7 +813,9 @@ pre code { background: transparent; padding: 0; color: inherit; }
   font-style: italic;
 }
 .post-content img { max-width: 100%; border-radius: var(--radius); border: 1px solid var(--border); }
-.post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }
+/*.post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }*/
+.post-content table:not(.highlight table) { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .88rem; }
+
 .post-content th { background: var(--bg-panel); color: var(--green); border: 1px solid var(--border); padding: .6rem 1rem; text-align: left; }
 .post-content td { border: 1px solid var(--border); padding: .6rem 1rem; }
 .post-content tr:nth-child(even) td { background: var(--bg-panel); }
@@ -1090,4 +1092,27 @@ pre code { background: transparent; padding: 0; color: inherit; }
 
 .lang-btn:hover::before {
   width: 100%;
+}
+
+/* ── Line numbers syntax highlight ─────── */
+/* Tabella syntax highlight */
+.highlight table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: inherit;
+}
+
+.highlight table td:first-child {
+  padding-right: 1.2em;
+  padding-left: 0.5em;
+  color: var(--text-dim);
+  user-select: none;
+  text-align: right;
+  min-width: 2em;
+  border-right: 1px solid var(--border);
+}
+
+.highlight table td:last-child {
+  padding-left: 1em;
 }

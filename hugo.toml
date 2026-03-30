@@ -62,7 +62,7 @@ weight = 2
   [markup.highlight]
     style = "dracula"
     lineNos = true
-    lineNumbersInTable = false
+    lineNumbersInTable = true
     noClasses = false
   [markup.goldmark]
     [markup.goldmark.renderer]
