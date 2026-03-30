@@ -1095,6 +1095,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
 
 /* ── Line numbers syntax highlight ─────── */
 .highlight table td:first-child {
+  border-left: 3px solid var(--yellow);
   padding-right: 1.2em;
   color: var(--text-dim);
   user-select: none;        /* non selezionabile quando copi il codice */
@@ -1107,7 +1108,6 @@ pre code { background: transparent; padding: 0; color: inherit; }
 }
 
 .highlight table {
-  border-left: 3px solid var(--red);
   width: 100%;
   border-collapse: collapse;
 }
