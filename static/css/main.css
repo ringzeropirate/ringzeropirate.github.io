@@ -737,7 +737,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
 
 /* ── Single post ────────────────────────── */
 .single-post {
-  max-width: 1000px;
+  max-width: 1050px;
   margin: 0 auto;
   padding: 3rem 2rem;
 }
