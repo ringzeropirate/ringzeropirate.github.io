@@ -1103,6 +1103,7 @@ pre code { background: transparent; padding: 0; color: inherit; }
 }
 
 .highlight table td:last-child {
+  border-left: none
   padding-left: 0.8em;
 }
 
