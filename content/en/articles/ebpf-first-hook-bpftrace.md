@@ -23,7 +23,7 @@ series_order: 1
 
 ---
 
-![Copertina sudo](/images/eBpf/primo_hook.png)
+![Copertina sudo](/images/eBpf/first_hook.png)
 
 ---
 
