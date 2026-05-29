@@ -1,4 +1,3 @@
-# RCE in Notepad++ via XML Configuration Files: A Taint Analysis Journey
 ---
 title: "RCE in Notepad++ via XML Configuration Files: A Taint Analysis Journey"
 translationKey: "notepadpp_rce"
@@ -17,7 +16,7 @@ draft: false
 **Reading time:** 10 minuti
 
 ---
-![Copertina sudo](/images/notepad/notepadpp.png)
+![Copertina notepadpp](/images/notepad/notepadpp.png)
 
 ---
 
