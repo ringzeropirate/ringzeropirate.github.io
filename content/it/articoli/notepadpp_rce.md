@@ -8,6 +8,7 @@ categories: ["Offensive Security", "Vulnerability Research"]
 description: "Ricerca di sicurezza indipendente su Notepad++ v8.9.5 che individua due vulnerabilità di Remote Code Execution tramite file di configurazione XML (config.xml e shortcuts.xml). Dall'analisi statica del sorgente con Semgrep e taint tracking source-to-sink, alla costruzione del PoC con PowerShell, fino alla divulgazione coordinata con il maintainer Don Ho. Fix rilasciata in v8.9.6.1. CVE-2026-48778 | CVE-2026-48800 | CVSS 7.8 HIGH."
 draft: false
 ---
+
 **CVE-2026-48778 | CVE-2026-48800 | CVSS 7.8 HIGH**  
 *Notepad++ v8.9.5 — Risolto nella v8.9.6.1*
 
@@ -204,8 +205,6 @@ Ciascuno degli 11 finding è stato verificato manualmente sul codice sorgente. R
 |----|------|---------|
 | NPP-RCE-001 | Parameters.cpp:6430 | ✅ **CONFERMATO** |
 | NPP-RCE-002 | Parameters.cpp:3658 | ✅ **CONFERMATO** |
-| NPP-DLL-001 | PluginsManager.cpp:131 | ⚠️ Solo modalità portable |
-| NPP-BOF-001 | Parameters.cpp:4311 | ⚠️ Impatto limitato |
 | NPP-FP-001 | NppCommands.cpp:761 | ❌ Comportamento intenzionale |
 | NPP-FP-002 | NppCommands.cpp:2490 | ❌ HKLM richiede admin |
 | NPP-FP-003 | pluginsAdmin.cpp:704 | ❌ SecurityGuard + flag DATAFILE |
