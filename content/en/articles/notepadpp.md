@@ -3,7 +3,7 @@ title: "**CVE-2026-48778 — CVSS 7.8 HIGH | CVE-2026-48800 — CVSS 7.8 HIGH | 
 translationKey: "notepadpp"
 date: 2026-06-16
 author: "Michele Piccinni aka RZP"
-tags: ["privilege-escalation", "vulnerability-research", "responsible-disclosure", "linux", "cybersecurity", "hacking", "threatintelligence", "artificialintelligence]
+tags: ["privilege-escalation", "vulnerability-research", "responsible-disclosure", "linux", "cybersecurity", "hacking", "threatintelligence", "artificialintelligence"]
 categories: ["Offensive Security", "Vulnerability Research"]
 description: "Independent security research finds 3 CVEs in *Notepad++ v8.9.5 — Fixed in v8.9.6.1 / v8.9.6.2*"
 draft: false
