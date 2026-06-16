@@ -1,5 +1,5 @@
 ---
-title: "**CVE-2026-48778 — CVSS 7.8 HIGH | CVE-2026-48800 — CVSS 7.8 HIGH | CVE-2026-52884 — CVSS 7.8 HIGH - **"
+title: "CVE-2026-48778 — CVSS 7.8 HIGH | CVE-2026-48800 — CVSS 7.8 HIGH | CVE-2026-52884 — CVSS 7.8 HIGH"
 translationKey: "notepadpp"
 date: 2026-06-16
 author: "Michele Piccinni aka RZP"
@@ -14,7 +14,7 @@ draft: false
   
 ---
 
-![Copertina articolo Notepadpp](/images//notepadpp.png)
+![Copertina articolo Notepadpp](/images/notepad/notepadpp.png)
 
 ## Indice
 
