@@ -1,4 +1,3 @@
-#
 ---
 title: "CVE-2026-53615: Integer Overflow in libblkid Espone l'MBR al Parser delle Partizioni"
 translationKey: "libblkid"
